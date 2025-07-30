@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    
+    font-family: "Roboto", sans-serif;
+}
+
+.borda {
+   border-bottom:rgb(206, 8, 255) solid 2px ;
+   color:  rgba(157, 0, 174, 0.926);
+}
+
+.letra {
+    color: rgb(0, 0, 0);
+    
+    &:hover {
+         color:  rgba(157, 0, 174, 0.926);
+    }
+}
+
+.Combos {
+  background-image: url(../../Assets/fundo-de-papel-de-parede-colorido-embacado-artistico.jpg);    background-size: cover;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 200, 0);
+    font-size: 30px;
+} 
+
+.paravc {
+    text-align: center;
+    margin-top: 70px;
+    font-size: 40px;
+    color: rgb(55, 9, 85);
+}
+
+.box1-carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.box1-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: max-content;
+  gap: 30px;
+  margin-top: 30px;
+  height: 540px;
+}
+
+.seta {
+  background-color:white;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  z-index: 5;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.seta.esquerda {
+  left: 20px;
+}
+
+.seta.direita {
+  right: 20px;
+}
+
+.card {
+  width: 415px;
+  height: 520px;
+  border-radius: 20px;
+  box-shadow: 3px 2px 15px gray;
+  padding: 35px 20px 30px 20px;
+  box-sizing: border-box;
+  text-align: center;   
+}
+
+.card h1 {
+    font-size: 40px;
+    color: rgb(105, 14, 135);
+    text-align: center;
+}
+
+.planos {
+    display: flex;
+    padding-top: 30px;
+    gap: 15px;
+    padding-left: 30px;
+}
+
+.iconis {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.iconis img {
+    width: 24px;
+    height: 24px;
+}
+
+.conteudo {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(55, 9, 85);
+    gap: 22px;
+    text-align: left;
+}
+
+.card button {  
+    text-align: center;
+    padding: 8px 70px;
+    border-radius: 20px;
+    margin-top: 40px;
+    background-color: rgb(255, 210, 8);
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    border: none;
+        
+    
+    &:hover {
+        color: #690e87;
+    }
+}
+
+.informacoes {
+  margin-top: 100px;
+}

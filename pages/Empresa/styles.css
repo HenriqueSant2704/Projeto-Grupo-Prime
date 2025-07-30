@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    
+    font-family: "Roboto", sans-serif;
+}
+
+.borda {
+   border-bottom:rgb(206, 8, 255) solid 2px ;
+   color:  rgba(157, 0, 174, 0.926);
+}
+
+.letra {
+    color: rgb(0, 0, 0);
+    
+    &:hover {
+         color:  rgba(157, 0, 174, 0.926);
+    }
+}
+
+.empresa {
+  background-image: url(../../Assets/fundo-de-papel-de-parede-colorido-embacado-artistico.jpg);  
+    background-size: cover;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 200, 0);
+    font-size: 30px;
+}
+
+.container-sobre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 30px;
+    gap: 40px;
+}
+
+.img-sobre img {
+    width: 700px;
+    height: 700px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.texto-sobre {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgb(0, 0, 0);
+    gap: 20px;
+}
+
+.container-objetivos {
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #DBD9F9;
+    gap: 100px;
+}
+
+.objetivos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.missao {
+    width: 35%;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: #AA98F8;
+    padding: 30px;
+    gap: 20px;
+}
+
+.visao {
+    width: 35%;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: #AA98F8;
+    padding: 30px;
+    gap: 20px;
+}   
+
+.valores {
+    width: 78%;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: #AA98F8;
+    padding: 30px;
+    gap: 20px;
+}
+
+.container-objetivos h1 {
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+}
+
+.container-objetivos p {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+}
+
+.container-objetivos li {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.container-objetivos span {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: bold;
+}

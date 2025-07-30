@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    
+    font-family: "Roboto", sans-serif;
+}
+
+.borda {
+   border-bottom:rgb(206, 8, 255) solid 2px ;
+   color:  rgba(157, 0, 174, 0.926);
+}
+
+.letra {
+    color: rgb(0, 0, 0);
+    
+    &:hover {
+         color:  rgba(157, 0, 174, 0.926);
+    }
+}
+
+
+
+.container-form {
+   height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to left, rgba(36, 13, 186, 0.8), rgb(122, 0, 236),  rgb(86, 0, 115));
+    
+}
+
+.formulario {
+    width: 100%;
+    max-width: 600px;
+    height: 74%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(to left, rgb(113, 3, 187), rgb(102, 8, 190),  rgb(50, 0, 115));
+    border-radius: 10px;
+    box-shadow: 10px 7px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    border: 5px solid rgba(255, 210, 8, 0S  .5);
+}
+
+.formulario form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario input,
+.formulario textarea {
+    width: 90%;
+    max-width: 90%;
+    padding: 15px;
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 10px;
+    font-family: "Roboto", sans-serif;
+    background-color: rgb(41, 41, 58);
+    color: white;
+}
+
+.formulario textarea {
+    height: 130px;
+    resize: none;
+}
+
+.formulario button {
+    width: 40%;
+    max-width: 90%;
+    padding: 10px;
+    background-color: rgb(255, 210, 8);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.formulario h1 {
+    color: rgb(255, 210, 8);
+    font-size: 40px;
+    margin-bottom: 20px;
+}

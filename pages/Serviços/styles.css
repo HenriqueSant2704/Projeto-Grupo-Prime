@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    
+    font-family: "Roboto", sans-serif;
+}
+
+.borda {
+   border-bottom:rgb(206, 8, 255) solid 2px ;
+   color:  rgba(157, 0, 174, 0.926);
+}
+
+.letra {
+    color: rgb(0, 0, 0);
+    
+    &:hover {
+         color:  rgba(157, 0, 174, 0.926);
+    }
+}
+
+.fale {
+   background-image: url(../../Assets/fundo-de-papel-de-parede-colorido-embacado-artistico.jpg);  
+    background-size: cover;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 200, 0);
+    font-size: 30px;
+}
