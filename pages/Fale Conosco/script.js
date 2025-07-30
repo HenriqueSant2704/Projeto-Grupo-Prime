@@ -1,16 +1,27 @@
- const slides = document.getElementById('slides');
-    const nextBtn = document.getElementById('nextBtn');
-    const totalSlides = 3;
-    let index = 0;
+ const telefoneInput = document.getElementById("telefone");
 
-    function showSlide(i) {
-      slides.style.transform = `translateX(-${i * 100}vw)`;
+  telefoneInput.addEventListener("input", function () {
+
+    let valor = telefoneInput.value.replace(/\D/g, "");
+
+  
+    if (valor.length === 0) {
+      telefoneInput.value = "";
+      return;
     }
 
-    function nextSlide() {
-      index = (index + 1) % totalSlides;
-      showSlide(index);
+
+    if (valor.length > 11) {
+      valor = valor.slice(0, 11);
     }
 
-    nextBtn.addEventListener('click', nextSlide);
-    setInterval(nextSlide, 6000); // automático
+    if (valor.length <= 2) {
+      telefoneInput.value = `(${valor}`;
+    } else if (valor.length <= 6) {
+      telefoneInput.value = `(${valor.slice(0, 2)}) ${valor.slice(2)}`;
+    } else if (valor.length <= 10) {
+      telefoneInput.value = `(${valor.slice(0, 2)}) ${valor.slice(2, 6)}-${valor.slice(6)}`;
+    } else {
+      telefoneInput.value = `(${valor.slice(0, 2)}) ${valor.slice(2, 7)}-${valor.slice(7)}`;
+    }
+  });

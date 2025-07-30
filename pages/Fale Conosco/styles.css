@@ -70,6 +70,13 @@ body {
     color: white;
 }
 
+.formulario input:-webkit-autofill,
+.formulario textarea:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px rgb(41, 41, 58) inset !important;
+    -webkit-text-fill-color: white !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
 .formulario textarea {
     height: 130px;
     resize: none;
