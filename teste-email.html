@@ -1,4 +1,23 @@
 <!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Contato</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 2em auto; padding: 1em; }
+        label, input, textarea { display: block; margin-bottom: 1em; }
+        input, textarea { width: 100%; padding: 0.5em; box-sizing: border-box; }
+        button { padding: 0.7em 1.5em; background-color: #007BFF; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        #status-message { margin-top: 1em; padding: 1em; border-radius: 5px; display: none; }
+        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+    </style>
+</head>
+<body>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -29,7 +48,6 @@
             </div>
      </div>
 
-  
 
 <div class="container-form">
     <div class="formulario">
@@ -43,6 +61,12 @@
 </form>
     </div>
 </div>
+
+
+
+
+
+
 
 <footer class="informacoes">
   <div class="box7">
@@ -117,8 +141,69 @@
   <p>© 2025 GrupoPrime Senac SP</p>
 </footer>
 
-<script src="script.js"></script>
-<script src="../../server.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="status-message"></div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const statusMessage = document.getElementById('status-message');
+            statusMessage.style.display = 'none';
+
+            const formData = {
+                nome: form.nome.value,
+                email: form.email.value,
+                mensagem: form.mensagem.value
+            };
+
+            try {
+                // Rota completa, com envio para BD e e-mail
+                const response = await fetch('http://localhost:3000/enviar-contato', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    statusMessage.className = 'success';
+                    statusMessage.textContent = result.message;
+                    form.reset();
+                } else {
+                    statusMessage.className = 'error';
+                    statusMessage.textContent = result.error || 'Erro desconhecido.';
+                }
+                
+            } catch (error) {
+                statusMessage.className = 'error';
+                statusMessage.textContent = 'Erro ao conectar com o servidor. Tente novamente mais tarde.';
+                console.error('Erro:', error);
+            } finally {
+                statusMessage.style.display = 'block';
+            }
+        });
+    </script>
 
 </body>
 </html>

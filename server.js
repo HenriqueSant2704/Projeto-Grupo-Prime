@@ -2,49 +2,48 @@ const express = require('express');
 const sql = require('mssql');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
+require('dotenv').config(); // <-- carrega o .env
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-
+// Configuração do banco de dados usando variáveis do .env
 const dbConfig = {
-  user: 'usuario_formulario',
-  password: 'GrupoPrime@123',
-  server: 'localhost',
-  database: 'Contatos',
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  server: process.env.DB_SERVER,
+  database: process.env.DB_DATABASE,
   options: {
     encrypt: false,
     trustServerCertificate: true
   }
 };
 
-
-
+// Configuração do Nodemailer usando variáveis do .env
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'henriquesantanamiguel@gmail.com',
-    pass: 'jkxo wbjz xrsr ulkl' 
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
   }
 });
-
 
 app.post('/enviar', async (req, res) => {
   const { nome, email, telefone, mensagem } = req.body;
 
   try {
-
+    // Salva no banco de dados
     await sql.connect(dbConfig);
     await sql.query`
       INSERT INTO Contato (nome, email, telefone, mensagem)
       VALUES (${nome}, ${email}, ${telefone}, ${mensagem})
     `;
 
-
+    // Envia email
     await transporter.sendMail({
-      from: 'henriquesantanamiguel@gmail.com',
-      to: 'henriquesantanamiguel@gmail.com',
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER,
       subject: 'Novo contato pelo site',
       text: `Nome: ${nome}\nEmail: ${email}\nTelefone: ${telefone}\nMensagem:\n${mensagem}`
     });
