@@ -240,7 +240,7 @@ body {
         
     
     &:hover {
-        background-color:rgba(214, 186, 0, 0.995);
+        background-color: rgb(255, 210, 8);
         color: #690e87;
     }
 }
