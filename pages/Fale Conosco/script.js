@@ -20,24 +20,38 @@ telefoneInput.addEventListener("input", function () {
 });
 
 const form = document.getElementById('formContato');
+const submitButton = form.querySelector('button[type="submit"]');
+
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
+  submitButton.disabled = true;
+  submitButton.innerText = "Enviando...";
+
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
+
   try {
     const res = await fetch('http://localhost:3000/enviar', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     });
+
+    const responseData = await res.json();
+
     if (res.ok) {
       alert('Mensagem enviada com sucesso!');
       form.reset();
+    } else if (res.status === 429) {
+      alert(responseData.error || 'Você está enviando mensagens muito rápido. Tente novamente.');
     } else {
-      alert('Erro ao enviar. Tente novamente.');
+      alert(responseData.error || 'Erro ao enviar. Tente novamente.');
     }
   } catch (error) {
     alert('Erro de conexão com o servidor.');
     console.error(error);
+  } finally {
+    submitButton.disabled = false;
+    submitButton.innerText = "Enviar Mensagem";
   }
 });

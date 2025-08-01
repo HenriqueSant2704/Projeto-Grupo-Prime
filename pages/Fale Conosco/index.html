@@ -34,13 +34,15 @@
 <div class="container-form">
     <div class="formulario">
        <form id="formContato">
-      <h1>FALE CONOSCO</h1>
-      <input name="nome" type="text" placeholder="Nome" required>
-      <input name="email" type="email" placeholder="E-mail" required>
-      <input name="telefone" id="telefone" type="tel" placeholder="Telefone" required>
-      <textarea name="mensagem" placeholder="Mensagem" required></textarea>
-      <button type="submit">Enviar Mensagem</button>
-</form>
+          <h1>FALE CONOSCO</h1>
+          <input name="nome" type="text" placeholder="Nome" required>
+          <input name="email" type="email" placeholder="E-mail" required>
+          <input name="telefone" id="telefone" type="tel" placeholder="Telefone" required>
+          <textarea name="mensagem" placeholder="Mensagem" required></textarea>
+          <div class="enviar">
+            <button type="submit">Enviar Mensagem</button>
+          </div>
+      </form>
     </div>
 </div>
 
@@ -119,6 +121,6 @@
 
 <script src="script.js"></script>
 <script src="../../server.js"></script>
-
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>
