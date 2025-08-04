@@ -70,6 +70,47 @@ app.post('/enviar', async (req, res) => {
   }
 });
 
+app.post('/login', async (req, res) => {
+  const { cpf, senha } = req.body;
+
+  try {
+    await sql.connect(dbConfig);
+
+    // Verifica se CPF e senha são válidos
+    const resultado = await sql.query`
+      SELECT c.idCliente, c.nome, c.email
+      FROM Clientes c
+      JOIN Usuarios u ON c.idCliente = u.idCliente
+      WHERE c.cpf = ${cpf} AND u.senha = ${senha}
+    `;
+
+    if (resultado.recordset.length === 0) {
+      return res.status(401).json({ error: 'CPF ou senha inválidos' });
+    }
+
+    const cliente = resultado.recordset[0];
+
+    // Busca contratos do cliente
+    const contratos = await sql.query`
+      SELECT idContrato, descricao, status, dataAtivacao
+      FROM Contratos
+      WHERE idCliente = ${cliente.idCliente}
+    `;
+
+    res.status(200).json({
+      cliente: {
+        nome: cliente.nome,
+        email: cliente.email
+      },
+      contratos: contratos.recordset
+    });
+
+  } catch (error) {
+    console.error('Erro no login:', error);
+    res.status(500).json({ error: 'Erro interno no servidor' });
+  }
+});
+
 
 app.listen(3000, () => {
   console.log('Servidor rodando em http://localhost:3000');
