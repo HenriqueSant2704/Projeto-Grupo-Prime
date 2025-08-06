@@ -68,4 +68,35 @@ document.querySelector('.login').addEventListener('submit', async (e) => {
     alert(`Login realizado com sucesso!\nContrato selecionado: ${contratoSelecionado}`);
   
   }
+
+  document.querySelector('.esqueci a').addEventListener('click', async (e) => {
+  e.preventDefault();
+
+  const cpf = document.getElementById('cpf').value.trim();
+
+  if (!cpf) {
+    alert('Digite o CPF para redefinir a senha.');
+    return;
+  }
+
+  try {
+    const response = await fetch('http://localhost:3000/esqueci-senha', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ cpf })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert(data.message || 'Nova senha enviada ao seu e-mail.');
+    } else {
+      alert(data.error || 'Erro ao redefinir senha.');
+    }
+  } catch (err) {
+    alert('Erro ao conectar com o servidor.');
+    console.error(err);
+  }
+});
+
 });

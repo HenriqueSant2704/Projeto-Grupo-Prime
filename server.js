@@ -111,6 +111,55 @@ app.post('/login', async (req, res) => {
 });
 
 
+app.post('/esqueci-senha', async (req, res) => {
+  const { cpf } = req.body;
+
+  if (!cpf) {
+    return res.status(400).json({ error: 'CPF é obrigatório' });
+  }
+
+  try {
+    await sql.connect(dbConfig);
+
+   
+    const resultado = await sql.query`
+      SELECT c.idCliente, c.email
+      FROM Clientes c
+      WHERE c.cpf = ${cpf}
+    `;
+
+    if (resultado.recordset.length === 0) {
+      return res.status(404).json({ error: 'CPF não encontrado' });
+    }
+
+    const cliente = resultado.recordset[0];
+
+   
+    const novaSenha = Math.random().toString(36).slice(-8); 
+
+   
+    await sql.query`
+      UPDATE Usuarios
+      SET senha = ${novaSenha}
+      WHERE idCliente = ${cliente.idCliente}
+    `;
+
+    
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: cliente.email,
+      subject: 'Nova senha - Netico',
+      text: `Olá!\n\nSua nova senha de acesso é: ${novaSenha}\n\nVocê pode alterá-la após o login.\n\nAtenciosamente,\nEquipe Netico`
+    });
+
+    res.status(200).json({ message: 'Nova senha enviada para seu e-mail' });
+  } catch (error) {
+    console.error('Erro ao redefinir senha:', error);
+    res.status(500).json({ error: 'Erro interno ao redefinir senha' });
+  }
+});
+
+
 app.listen(3000, () => {
   console.log('Servidor rodando em http://localhost:3000');
 });
