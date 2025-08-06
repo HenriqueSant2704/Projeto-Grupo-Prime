@@ -8,8 +8,8 @@ toggleIcon.addEventListener('click', () => {
   const isPassword = senhaInput.type === 'password';
   senhaInput.type = isPassword ? 'text' : 'password';
   toggleIcon.src = isPassword 
-    ? 'Assets/cadeado-aberto.png'    
-    : 'Assets/iconi2.png';        
+    ? 'Assets/olho.png'    
+    : 'Assets/fechar-o-olho.png';        
 });
 
 document.querySelector('.login').addEventListener('submit', async (e) => {
@@ -34,20 +34,20 @@ document.querySelector('.login').addEventListener('submit', async (e) => {
       const data = await response.json();
 
       if (response.ok) {
-        // Exibe o campo de seleção de contrato
+    
         contratoContainer.style.display = 'block';
         etapa = 'selecionar-contrato';
 
-        // Preenche o select
+       
         selectContratos.innerHTML = '<option value="">Selecione um contrato</option>';
         data.contratos.forEach(c => {
           const option = document.createElement('option');
           option.value = c.idContrato;
-          option.textContent = c.descricao; // ou plano, ou endereço, etc.
+          option.textContent = c.descricao; 
           selectContratos.appendChild(option);
         });
 
-        // Bloqueia os campos para evitar edição
+        
         document.getElementById('cpf').disabled = true;
         document.getElementById('senha').disabled = true;
       } else {
@@ -66,6 +66,6 @@ document.querySelector('.login').addEventListener('submit', async (e) => {
     }
 
     alert(`Login realizado com sucesso!\nContrato selecionado: ${contratoSelecionado}`);
-    // Redirecione ou mostre o painel aqui...
+  
   }
 });

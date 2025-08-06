@@ -76,7 +76,7 @@ app.post('/login', async (req, res) => {
   try {
     await sql.connect(dbConfig);
 
-    // Verifica se CPF e senha são válidos
+
     const resultado = await sql.query`
       SELECT c.idCliente, c.nome, c.email
       FROM Clientes c
@@ -90,7 +90,6 @@ app.post('/login', async (req, res) => {
 
     const cliente = resultado.recordset[0];
 
-    // Busca contratos do cliente
     const contratos = await sql.query`
       SELECT idContrato, descricao, status, dataAtivacao
       FROM Contratos
