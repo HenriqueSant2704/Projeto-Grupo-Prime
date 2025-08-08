@@ -45,7 +45,7 @@ body {
 
 .slides img {
      width: 100vw;
-     height: 690px;
+     height: 680px;
      object-fit: cover;
 }
 
@@ -247,6 +247,7 @@ body {
 .bassico button{
     margin-top: 100px;
 }
+
 
 .box4 {
     background-color: #DBD9F9;

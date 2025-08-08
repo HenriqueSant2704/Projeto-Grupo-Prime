@@ -11,7 +11,7 @@ body {
     justify-content: center; 
     align-items: center ;
     min-height: 100vh;
-    background: url(../Assets/fundo-de-papel-de-parede-colorido-embacado-artistico.jpg);
+    background: url(../../Assets/fundo-de-papel-de-parede-colorido-embacado-artistico.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -119,4 +119,15 @@ body {
     width: 18px;
     height: 18px;
     cursor: pointer;
+}
+
+.input-contrato {
+    margin-left: 40px;
+    padding: 10px 80px 10px 10px;
+    border-radius: 15px;
+    font-size: 14px;
+    display: flex;
+    outline: none;
+    border: 1px solid black;   
+    margin-top: 15px;
 }
