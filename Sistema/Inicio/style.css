@@ -1,0 +1,152 @@
+.guia {
+    width: 280px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    background: linear-gradient(to bottom, #ae00f8f8, rgb(112, 4, 158), #4e0064);
+    color: aliceblue;
+    gap: 40px;
+    position: fixed;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5) ;
+}
+
+.logoo  {
+    width: 60%;
+    height: auto;
+    padding-top: 20px;
+    padding-left: 20px;
+}   
+
+.guia-menu {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start ;
+    align-items: start;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.menu-inicio {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 15px;
+}
+
+.conteudo {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.282);
+    }
+}
+
+.conteudo img {
+    width: 20px;
+    height: 20px;
+}
+
+.conteudo a {
+    text-decoration: none;
+    color: aliceblue;
+    font-size: 15px;
+    font-weight: bold;;
+}
+
+span {
+    width: 100%;
+    opacity: 0.8;
+    font-weight: bold;
+    border-top: solid 2px rgba(255, 255, 255, 0.282);
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.men-rapido {
+    width: 100%;
+    height: 95px;
+    background: linear-gradient(to right, #ae00f8f8, rgb(112, 4, 158), #4e0064);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.esconder {
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.circulo {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.282);
+    }
+    
+}
+
+.esconder img {
+    width: 24px;
+    height: auto;
+    padding: 10px;
+    cursor: pointer;    
+}
+
+.outras-contas {
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content:end ;
+    padding-right: 20px;
+}
+
+.circulo img {
+    width: 24px;
+    height: auto;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.traco {
+    width: 1px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.282);
+    margin-right: 20px;
+}
+
+.conta img {
+    width: 40px;
+    height: auto;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.conta {
+    width: 250px;
+    border-radius: 10px;
+    margin-right: 10px;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.282);
+    }
+}
