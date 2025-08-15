@@ -2,7 +2,7 @@ const senhaInput = document.getElementById('senha');
 const toggleIcon = document.getElementById('toggleSenha');
 const contratoContainer = document.getElementById('contrato-container');
 const selectContratos = document.getElementById('contratos');
-const esqueceuSenhaLink = document.querySelector('.esqueci a'); // link do "Esqueci a senha"
+const esqueceuSenhaLink = document.querySelector('.esqueci a'); 
 const cpfInput = document.getElementById('cpf');
 
 let etapa = 'login';
