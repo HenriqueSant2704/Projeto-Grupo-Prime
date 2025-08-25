@@ -40,8 +40,12 @@ body {
 }
 
 .login {
-    width: 370px;
+    width: 360px;
     height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     border-radius: 15px;
     box-shadow: 0px 0px 10px black;
     backdrop-filter: blur(20px);
@@ -122,7 +126,6 @@ body {
 }
 
 .input-contrato {
-    margin-left: 40px;
     padding: 10px 80px 10px 10px;
     border-radius: 15px;
     font-size: 14px;
@@ -131,3 +134,12 @@ body {
     border: 1px solid black;   
     margin-top: 15px;
 }
+
+#contrato-container {
+    width: 87%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 45px;
+}
+

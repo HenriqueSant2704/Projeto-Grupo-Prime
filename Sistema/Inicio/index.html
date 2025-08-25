@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../Sistema/Inicio/style.css" />
+    <title>Sistema - Netico</title>
+  </head>
+  <body>
+    <div class="container-pai">
+      <div class="guia">
+        <div class="logo">
+          <a href="../../index.html" target="_blank">
+            <img src="../../Assets/netico-logo.webp" alt="" />
+          </a>
+        </div>
+
+        <div class="central-1">
+          <span>Central</span>
+          <div class="links">
+            <a href="../../Sistema/Inicio/index.html">
+              <div class="area">
+                <img src="../../Sistema/Inicio/Assets/iconis/silhueta-de-icone-de-casa.png" alt="" />
+                <p>Inicío</p>
+              </div>
+            </a>
+
+            <a href="#">
+              <div class="area">
+                <img src="../../Sistema/Inicio/Assets/iconis/agente-de-call-center.png" alt="" />
+                <p>Ocorrência</p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="central">
+          <span>Financeiro</span>
+          <a href="#">
+            <div class="links">
+              <div class="area">
+                <img src="../../Sistema/Inicio/Assets/iconis/pagamento-com-cartao-de-credito.png" alt="" />
+                <p>Pagamento</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="central">
+          <span>Impressões</span>
+          <a href="#">
+            <div class="links">
+              <div class="area">
+                <img src="../../Sistema/Inicio/Assets/iconis/contrato.png" alt="" />
+                <p>Contrato</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="conteudo">
+        <div class="menu-rapido">
+          <div class="mais">
+            <div class="circulo">
+              <img src="../../Sistema/Inicio/Assets/iconis/mais.png" alt="" />
+            </div>
+
+            
+            <div class="dropdown-contratos" id="dropdownContratos">
+              <div class="titulo-contrato">
+                <img src="../../Sistema/Inicio/Assets/iconis/imagens-do-usuario.png" alt="" />
+                <h2>Alternar Contrato</h2>
+              </div>
+
+              
+              <div id="listaContratos" class="lista-contratos" role="listbox" aria-label="Lista de contratos">
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="outras-contas">
+            <div class="circulo">
+              <img src="../../Sistema/Inicio/Assets/iconis/imagens-do-usuario.png" alt="" />
+            </div>
+          </div>
+
+          <div class="traco"></div>
+
+          <div class="conta">
+            <div class="conta-toggle" id="contaToggle">
+              <img src="../../Sistema/Inicio/Assets/iconis/do-utilizador.png" alt="User" />
+              <span id="contaInfo"></span>
+              <i class="seta">▼</i>
+            </div>
+
+            <div class="conta-dropdown" id="contaDropdown">
+              <div class="conta-header">
+                <img src="../../Sistema/Inicio/Assets/iconis/do-utilizador.png" alt="User" />
+                <p id="contaNome"></p>
+              </div>
+              <div class="conta-opcoes">
+                <a href="../../pages/Area Login/index.html" class="opcao sair"
+                  ><img src="../../Sistema/Inicio/Assets/iconis/sair.png" alt="" /> Sair</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container-dados">
+          <div class="titulo-informacoes"><span>Início</span></div>
+          <div class="container">
+            <div class="container-dados-info">
+              <div class="container-informacoes">
+                <div class="informacoes">
+                  <div class="descricao">
+                    <img src="../../Sistema/Inicio/Assets/iconis/silhueta-de-icone-de-casa.png" alt="" />
+                    <h2>Serviço Contratado</h2>
+                  </div>
+                </div>
+
+                <div class="informacoes">
+                  <div class="descricao-2">
+                    <img src="../../Sistema/Inicio/Assets/iconis/sinal-de-aviso.png" />
+                    <h2>Informações e Avisos</h2>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container-chamado">
+                <div class="card-chamado">
+                  <div class="descricao-4">
+                    <img src="../../Sistema/Inicio/Assets/iconis/ponto-de-interrogacao.png" alt="" />
+                    <h2>Ocorrência</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="container-cobranca">
+              <div class="ajuste-cobraca">
+                <div class="card-cobranca">
+                  <div class="descricao-3">
+                    <img src="../../Sistema/Inicio/Assets/iconis/opcoes.png" />
+                    <h2>Resumo de Cobranças</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="Sistema.js"></script>
+  </body>
+</html>
