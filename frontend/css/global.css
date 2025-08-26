@@ -151,7 +151,7 @@ body {
 
 .informacoes {
     display: flex;
-    background-image: url(./Assets/fundo3.png);
+    background-image: url(../assets/fundo3.png);
     background-size: cover;                  
     background-position: center;             
     background-repeat: no-repeat
