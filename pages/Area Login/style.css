@@ -72,7 +72,7 @@ body {
 }
 
 .buttom {
-    margin-left: 13px;
+    margin-left: 8px;
     margin-top: 20px;
     padding: 7px 90px;
     border-radius: 15px;
@@ -125,21 +125,18 @@ body {
     cursor: pointer;
 }
 
-.input-contrato {
-    padding: 10px 80px 10px 10px;
+
+#contratos {
+    width: 300px;
+    height: 40px;
+    padding-left: 10px;
+    margin-left:35px ;
     border-radius: 15px;
     font-size: 14px;
     display: flex;
     outline: none;
     border: 1px solid black;   
     margin-top: 15px;
-}
-
-#contrato-container {
-    width: 87%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 45px;
+    cursor: pointer;
 }
 

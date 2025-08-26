@@ -1,3 +1,4 @@
+// ========================= IMPORTS =========================
 const express = require('express');
 const sql = require('mssql');
 const nodemailer = require('nodemailer');
@@ -8,6 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// ========================= CONFIG DB =========================
 const dbConfig = {
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
@@ -19,6 +21,7 @@ const dbConfig = {
   }
 };
 
+// ========================= CONFIG EMAIL =========================
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -28,7 +31,7 @@ const transporter = nodemailer.createTransport({
 });
 
 const emailCooldowns = {};
-const COOLDOWN_TIME = 60 * 1000;
+const COOLDOWN_TIME = 60 * 1000; // 1 min
 
 // ========================= ROTA CONTATO =========================
 app.post('/enviar', async (req, res) => {
@@ -148,33 +151,64 @@ app.post('/esqueci-senha', async (req, res) => {
 });
 
 // ========================= ROTA CONTRATOS DO CLIENTE =========================
-app.get("/contratos", async (req, res) => {
-  const { idCliente } = req.query;
+app.get("/api/contratos/:idCliente", async (req, res) => {
   try {
+    const { idCliente } = req.params;
     await sql.connect(dbConfig);
+
     const result = await sql.query`
-      SELECT idContrato, descricao, status, dataAtivacao
-      FROM Contratos
-      WHERE idCliente = ${idCliente}
+      SELECT
+        c.idContrato,
+        c.descricao,
+        c.status,
+        c.dataAtivacao,
+        p.nomePlano,
+        p.velocidade,
+        p.preco,
+        cli.nome        AS nomeCliente,
+        e.rua,
+        e.numero,
+        e.bairro,
+        e.cidade,
+        e.estado,
+        e.cep
+      FROM Contratos c
+      JOIN Clientes cli ON cli.idCliente = c.idCliente
+      LEFT JOIN Planos   p ON p.idPlano   = c.idPlano
+      OUTER APPLY (
+        SELECT TOP 1 rua, numero, bairro, cidade, estado, cep
+        FROM Enderecos
+        WHERE idCliente = c.idCliente
+        ORDER BY idEndereco DESC
+      ) e
+      WHERE c.idCliente = ${idCliente}
     `;
+
     res.json(result.recordset);
   } catch (err) {
-    console.error(err);
+    console.error("Erro na rota /api/contratos:", err);
     res.status(500).json({ error: "Erro ao buscar contratos" });
   }
 });
 
 // ========================= ROTA CONTRATO + TITULAR =========================
-app.get("/api/contrato/:id", async (req, res) => {
+app.get("/api/contrato/:idContrato", async (req, res) => {
   try {
-    const contratoId = req.params.id;
+    const { idContrato } = req.params;
 
     await sql.connect(dbConfig);
     const result = await sql.query`
-      SELECT c.idContrato, c.numeroContrato, cli.nome AS nomeTitular
+      SELECT 
+        c.idContrato, 
+        c.descricao, 
+        c.status, 
+        c.dataAtivacao,
+        cli.idCliente,
+        cli.nome AS nomeTitular,
+        cli.cpf AS cpfTitular
       FROM Contratos c
       INNER JOIN Clientes cli ON c.idCliente = cli.idCliente
-      WHERE c.idContrato = ${contratoId}
+      WHERE c.idContrato = ${idContrato}
     `;
 
     if (result.recordset.length === 0) {
@@ -183,12 +217,14 @@ app.get("/api/contrato/:id", async (req, res) => {
 
     res.json(result.recordset[0]);
   } catch (err) {
-    console.error(err);
+    console.error("Erro na rota /api/contrato:", err);
     res.status(500).json({ erro: "Erro ao buscar contrato" });
   }
 });
 
 // ========================= INICIAR SERVIDOR =========================
-app.listen(3000, () => {
-  console.log('Servidor rodando em http://localhost:3000');
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
 });
+  
