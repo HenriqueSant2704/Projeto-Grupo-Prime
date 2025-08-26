@@ -104,7 +104,7 @@ document.querySelector('.login').addEventListener('submit', async (e) => {
     localStorage.setItem('contratoDescricao', textoSelecionado);
 
     // 👉 Vai para a área do sistema (sem parâmetros na URL)
-    window.location.href = '../../Sistema/Inicio/index.html';
+    window.location.href = './index.html';
   }
 });
 
