@@ -164,7 +164,7 @@ body {
     text-align: center;
     font-size: 22px;
     color:white ;
-    background-image: url(./assets/index/fundo.png);
+    background-image: url(../assets/index/fundo.png);
     background-size: cover;                  
     background-position: center;             
     background-repeat: no-repeat

@@ -22,7 +22,7 @@ body {
 }
 
 .Combos {
-  background-image: url(./assets/fundo-de-papel-de-parede-colorido-embacado-artistico.jpg);    background-size: cover;
+  background-image: url(../assets/fundo-de-papel-de-parede-colorido-embacado-artistico.jpg);    background-size: cover;
     height: 250px;
     display: flex;
     justify-content: center;
